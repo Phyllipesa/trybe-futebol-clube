@@ -7,7 +7,8 @@ import {
   matchProgressFalse,
 } from '../../infra/persistence/utils/matchRelationship';
 import { decodedToken } from '../../infra/utils/auth';
-// import TeamRepository from '../repository/TeamRepository';
+import TeamRepository from '../repository/TeamRepository';
+import {ITeam] from "../entities/ITeam';
 
 class MatchService {
   constructor(
@@ -74,8 +75,11 @@ class MatchService {
       throw new HttpException(422, 'It is not possible to create a match with two equal teams');
     }
 
-    // await this.teamRepository.getById(entity.awayTeamId);
-    // await this.teamRepository.getById(entity.homeTeamId);
+    const team1: ITeam = { id: entity.homeTeamId, teamName: '' };
+    const team2: ITeam = { id: entity.awayTeamId, teamName: '' };
+
+    await this.teamRepository.getById(team1);
+    await this.teamRepository.getById(team2);
   };
 }
 
