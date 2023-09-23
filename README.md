@@ -57,7 +57,7 @@ Rodando a aplicação
 
 ## Tecnologias
 
- - Java
+ - TypeScript
 
 ## Autores
 
